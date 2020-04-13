@@ -16,13 +16,13 @@ class FloatingPoint:
     def __add__(self, other):
         to_return = FloatingPoint()
         if self.point != other.point:
-            if self.length > other.length:
-                other.number *= 10 ** (self.length - other.length)
-                other.point += (self.length - other.length)
+            if self.point > other.point:
+                other.number *= 10 ** (self.point - other.point)
+                other.point += (self.point - other.point)
                 other.length = self.length
-            elif self.length < other.length:
-                self.number *= 10 ** (other.length - self.length)
-                self.point += (other.length - self.length)
+            elif self.point < other.point:
+                self.number *= 10 ** (other.point - self.point)
+                self.point += (other.point - self.point)
                 self.length = other.length
         to_return.number = self.number + other.number
         to_return.point = self.point
